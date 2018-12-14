@@ -450,4 +450,59 @@ JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-KZB8HJR&t=gtm
 [Parent 3608, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Parent 3608, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Child 2724, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child
+[Child1544777724819	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.haCXEagm6vTw"
+1544777736839	Marionette	INFO	Listening on port 60258
+1544777737299	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PFWQMQJ&t=gtm3&cid=551992414.1544777746, line 104: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-TNG7ZNP&t=gtm5&cid=551992414.1544777746, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-KZB8HJR&t=gtm6&cid=551992414.1544777746, line 104: unreachable code after return statement
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PFWQMQJ&t=gtm3&cid=551992414.1544777746, line 104: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-TNG7ZNP&t=gtm5&cid=551992414.1544777746, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-KZB8HJR&t=gtm6&cid=551992414.1544777746, line 104: unreachable code after return statement
+1544777812577	Marionette	INFO	Stopped listening on port 60258
+JavaScript error: resource://gre/modules/WebProgressChild.jsm, line 58: TypeError: this.mm.content is null
+[Child 10292, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10668, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 10668, Chrome_Chi[Parent 7540, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+[GPU 119
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1544777819790	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.NkDVmfALCjyk"
+1544777824605	Marionette	INFO	Listening on port 60481
+1544777824947	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PFWQMQJ&t=gtm3&cid=1934832531.1544777833, line 104: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-TNG7ZNP&t=gtm5&cid=1934832531.1544777833, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-KZB8HJR&t=gtm6&cid=1934832531.1544777833, line 104: unreachable code after return statement
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PFWQMQJ&t=gtm3&cid=1934832531.1544777833, line 104: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-TNG7ZNP&t=gtm5&cid=1934832531.1544777833, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-KZB8HJR&t=gtm6&cid=1934832531.1544777833, line 104: unreachable code after return statement
+1544777888444	Marionette	INFO	Stopped listening on port 60481
+[Child 13268, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1JavaScript error: resource://gre/modules/WebProgressChild.jsm, line 58: TypeError: this.mm.content is null
+[Parent 8540, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 8540, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[GP
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+U 
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

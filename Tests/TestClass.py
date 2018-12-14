@@ -6,6 +6,7 @@ from Pages.LoginPage import LoginPage
 from Pages.ContactPage import ContactPage
 from Pages.TicketPage import TicketPage
 from Pages.DealPage import DealPage
+from Pages.SnippetPage import SnippetPage
 import unittest
 import configparser
 
@@ -24,7 +25,7 @@ class TestClass(unittest.TestCase):
     browser_type = config.get("Testing", "browser_type")
 
     def setUp(self):
-        global driver, lp, cp, tp, dp
+        global driver, lp, cp, tp, dp, sp
 
         if self.browser_type.lower() == "ch":
             driver = webdriver.Chrome(self.ch_executable_path)
@@ -41,6 +42,7 @@ class TestClass(unittest.TestCase):
         cp = ContactPage(driver)
         tp = TicketPage(driver)
         dp = DealPage(driver)
+        sp = SnippetPage(driver)
 
         lp.UserLogin(self.user,self.pwd)
 
@@ -48,57 +50,74 @@ class TestClass(unittest.TestCase):
         lp.UserLogout()
         driver.quit()
 
-    def test_1_login(self):
-        text=lp.VerifyLogin()
-        assert text == "Welcome back, PUSHPAK KUMAR."
-        print(text)
-
-    def test_2_create_contact(self):
-        global contact_data
-        contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Developer"]
-        cp.NavigateToContact()
-        cp.CreateContact(contact_data)
-        text = cp.VerifyCreateContact()
-        assert text == contact_data[1]+" "+contact_data[2]
-        print(text)
-
-    def test_3_delete_contact(self):
-        cp.NavigateToContact()
-        cp.DeleteContact(contact_data)
-        text = cp.VerifyDeleteContact(contact_data)
-        assert text == "No contacts match the current filters."
-        print(text)
-
-    def test_4_create_ticket(self):
-        global ticket_data
-        ticket_data = "John"
-        tp.NavigateToTicket()
-        tp.CreateTicket(ticket_data)
-        text = tp.VerifyCreateTicket()
-        assert text == ticket_data
-        print(text)
-
-    def test_5_delete_contact(self):
-        tp.NavigateToTicket()
-        ticket_data = "John"
-        tp.DeleteTicket(ticket_data)
-        text = tp.VerifyDeleteTicket(ticket_data)
-        assert text == "No tickets could be found."
-        print(text)
-
-    def test_6_create_deal(self):
-        global deal_data
-        deal_data = ["John",'30000']
-        dp.NavigateToDeal()
-        dp.CreateDeal(deal_data)
-        text = dp.VerifyCreateDeal()
-        assert text == deal_data[0]
-        print(text)
-
-    def test_7_delete_deal(self):
-        deal_data = ["John", '30000']
-        dp.NavigateToDeal()
-        dp.DeleteDeal(deal_data)
-        text = dp.VerifyDeleteDeal(deal_data)
-        assert text == "No deals match the current filters."
-        print(text)
+    # def test_1_login(self):
+    #     text=lp.VerifyLogin()
+    #     assert text == "Welcome back, PUSHPAK KUMAR."
+    #     print(text)
+    #
+    # def test_2_create_contact(self):
+    #     global contact_data
+    #     contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Developer"]
+    #     cp.NavigateToContact()
+    #     cp.CreateContact(contact_data)
+    #     text = cp.VerifyCreateContact()
+    #     assert text == contact_data[1]+" "+contact_data[2]
+    #     print(text)
+    #
+    # def test_3_delete_contact(self):
+    #     cp.NavigateToContact()
+    #     cp.DeleteContact(contact_data)
+    #     text = cp.VerifyDeleteContact(contact_data)
+    #     assert text == "No contacts match the current filters."
+    #     print(text)
+    #
+    # def test_4_create_ticket(self):
+    #     global ticket_data
+    #     ticket_data = "John"
+    #     tp.NavigateToTicket()
+    #     tp.CreateTicket(ticket_data)
+    #     text = tp.VerifyCreateTicket()
+    #     assert text == ticket_data
+    #     print(text)
+    #
+    # def test_5_delete_contact(self):
+    #     tp.NavigateToTicket()
+    #     ticket_data = "John"
+    #     tp.DeleteTicket(ticket_data)
+    #     text = tp.VerifyDeleteTicket(ticket_data)
+    #     assert text == "No tickets could be found."
+    #     print(text)
+    #
+    # def test_6_create_deal(self):
+    #     global deal_data
+    #     deal_data = ['John','30000']
+    #     dp.NavigateToDeal()
+    #     dp.CreateDeal(deal_data)
+    #     text = dp.VerifyCreateDeal()
+    #     assert text == deal_data[0]
+    #     print(text)
+    #
+    # def test_7_delete_deal(self):
+    #     deal_data = ['John', '30000']
+    #     dp.NavigateToDeal()
+    #     dp.DeleteDeal(deal_data)
+    #     text = dp.VerifyDeleteDeal(deal_data)
+    #     assert text == "No deals match the current filters."
+    #     print(text)
+    #
+    # def test_8_create_snippet(self):
+    #     global snippet_data
+    #     snippet_data = ['Confirmation','We will Contact you later.','st']
+    #     sp.NavigateToSnippet()
+    #     sp.CreateSnippet(snippet_data)
+    #     text = sp.VerifyCreateSnippet(snippet_data)
+    #     assert text == snippet_data[0]
+    #     print(text)
+    #
+    # def test_9_delete_snippet(self):
+    #     # snippet_data = []
+    #     sp.NavigateToSnippet()
+    #     sp.DeleteSnippet(snippet_data)
+    #     text = sp.VerifyDeleteSnippet()
+    #     assert text == "Nothing matches your search."
+    #     print(text)
