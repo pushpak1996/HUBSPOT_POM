@@ -79,7 +79,7 @@ class TestClass(unittest.TestCase):
         assert text == ticket_data
         print(text)
     
-    def test_5_delete_contact(self):
+    def test_5_delete_ticket(self):
         tp.NavigateToTicket()
         ticket_data = "John"
         tp.DeleteTicket(ticket_data)
