@@ -1,7 +1,4 @@
-#from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium import webdriver
-#from selenium.webdriver.chrome import service
-#from PageObjectsPackage.RegistrationPage import Registration
 from Pages.LoginPage import LoginPage
 from Pages.ContactPage import ContactPage
 from Pages.TicketPage import TicketPage
