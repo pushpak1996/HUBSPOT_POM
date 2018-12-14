@@ -1,4 +1,5 @@
 from selenium import webdriver
+import sys
 sys.path.insert(0, "../../HUBSPOT_POM")
 from Pages.LoginPage import LoginPage
 from Pages.ContactPage import ContactPage
@@ -7,7 +8,7 @@ from Pages.DealPage import DealPage
 from Pages.SnippetPage import SnippetPage
 import unittest
 import configparser
-import sys
+
 
 class TestClass(unittest.TestCase):
     config = configparser.ConfigParser()  # create an object called config
