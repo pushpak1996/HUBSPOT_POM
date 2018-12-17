@@ -54,12 +54,12 @@ class TestClass(unittest.TestCase):
         print(title)
         driver.quit()
 
-    def test_1_login(self):
+    def test_01_login(self):
         text=lp.VerifyLogin()
         assert text == "Welcome back, PUSHPAK KUMAR."
         print(text)
 
-    def test_2_create_contact(self):
+    def test_02_create_contact(self):
         global contact_data
         contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Developer"]
         cp.NavigateToContact()
@@ -68,14 +68,14 @@ class TestClass(unittest.TestCase):
         assert text == contact_data[1]+" "+contact_data[2]
         print(text)
 
-    def test_3_delete_contact(self):
+    def test_03_delete_contact(self):
         cp.NavigateToContact()
         cp.DeleteContact(contact_data)
         text = cp.VerifyDeleteContact(contact_data)
         assert text == "No contacts match the current filters."
         print(text)
 
-    def test_4_create_ticket(self):
+    def test_04_create_ticket(self):
         global ticket_data
         ticket_data = "John"
         tp.NavigateToTicket()
@@ -84,7 +84,7 @@ class TestClass(unittest.TestCase):
         assert text == ticket_data
         print(text)
 
-    def test_5_delete_ticket(self):
+    def test_05_delete_ticket(self):
         tp.NavigateToTicket()
         ticket_data = "John"
         tp.DeleteTicket(ticket_data)
@@ -92,7 +92,7 @@ class TestClass(unittest.TestCase):
         assert text == "No tickets could be found."
         print(text)
 
-    def test_6_create_deal(self):
+    def test_06_create_deal(self):
         global deal_data
         deal_data = ['John','30000']
         dp.NavigateToDeal()
@@ -101,7 +101,7 @@ class TestClass(unittest.TestCase):
         assert text == deal_data[0]
         print(text)
 
-    def test_7_delete_deal(self):
+    def test_07_delete_deal(self):
         deal_data = ['John', '30000']
         dp.NavigateToDeal()
         dp.DeleteDeal(deal_data)
@@ -109,7 +109,7 @@ class TestClass(unittest.TestCase):
         assert text == "No deals match the current filters."
         print(text)
 
-    def test_8_create_snippet(self):
+    def test_08_create_snippet(self):
         global snippet_data
         snippet_data = ['Confirmation','We will Contact you later.','ST']
         sp.NavigateToSnippet()
@@ -118,7 +118,7 @@ class TestClass(unittest.TestCase):
         assert text == snippet_data[0]
         print(text)
 
-    def test_9_delete_snippet(self):
+    def test_09_delete_snippet(self):
         sp.NavigateToSnippet()
         sp.DeleteSnippet(snippet_data)
         text = sp.VerifyDeleteSnippet()
