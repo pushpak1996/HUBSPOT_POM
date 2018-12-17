@@ -1,6 +1,4 @@
 from Tests.BaseClass import SeleniumDriver
-import time
-
 
 """
 LoginToGithub class : Page class which contains all the methods and variables. 

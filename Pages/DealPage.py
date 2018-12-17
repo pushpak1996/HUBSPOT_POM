@@ -50,7 +50,6 @@ class DealPage(SeleniumDriver):
         attr_val = self.getElementAttr(self._VerifyCreateDeal,"value", locatorType="xpath")
         return attr_val
 
-
     def VerifyDeleteDeal(self, deal_data):
         self.sendKeys(deal_data[0], self._SearchDeal, locatorType="css")
         element = self.getElement(self._VerifyDeleteDeal, locatorType="css")
