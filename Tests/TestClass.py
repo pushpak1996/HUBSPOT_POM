@@ -23,7 +23,6 @@ class TestClass(unittest.TestCase):
     user = config.get("Testing", "hs_un")
     pwd = config.get("Testing", "hs_pwd")
     impwait = config.get("Testing", "implicit_wait")
-    browser_type = config.get("Testing", "browser_type")
 
     runtime = datetime.datetime.now().time().hour
 
