@@ -27,7 +27,7 @@ class TestClass(unittest.TestCase):
     runtime = datetime.datetime.now().time().hour
 
     def setUp(self):
-        global driver, lp, cp, tp, dp, sp, cm
+        global driver, lp, cp, tp, dp, sp, cmp
 
         if (self.runtime % 2) == 0:
             driver = webdriver.Chrome(self.ch_executable_path)
@@ -43,7 +43,7 @@ class TestClass(unittest.TestCase):
         tp = TicketPage(driver)
         dp = DealPage(driver)
         sp = SnippetPage(driver)
-        cm = CompanyPage(driver)
+        cmp = CompanyPage(driver)
 
         lp.UserLogin(self.user,self.pwd)
 
@@ -128,15 +128,15 @@ class TestClass(unittest.TestCase):
     def test_10_create_company(self):
         global company_data, name
         company_data = ['hcl.com']
-        cm.NavigateToCompany()
-        name = cm.CreateCompany(company_data)
-        text = cm.VerifyCreateCompany()
+        cmp.NavigateToCompany()
+        name = cmp.CreateCompany(company_data)
+        text = cmp.VerifyCreateCompany()
         assert text == name
         print(text)
 
     def test_11_delete_company(self):
-        cm.NavigateToCompany()
-        cm.DeleteCompany(name)
-        text = cm.VerifyDeleteCompany(company_data)
+        cmp.NavigateToCompany()
+        cmp.DeleteCompany(name)
+        text = cmp.VerifyDeleteCompany(company_data)
         assert text == "No companies match the current filters."
         print(text)
