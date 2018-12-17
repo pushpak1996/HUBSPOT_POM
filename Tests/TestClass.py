@@ -9,6 +9,7 @@ from Pages.SnippetPage import SnippetPage
 from Pages.CompanyPage import CompanyPage
 import unittest
 import configparser
+import datetime
 
 
 class TestClass(unittest.TestCase):
@@ -24,15 +25,15 @@ class TestClass(unittest.TestCase):
     impwait = config.get("Testing", "implicit_wait")
     browser_type = config.get("Testing", "browser_type")
 
+    runtime = datetime.datetime.now().time().hour
+
     def setUp(self):
         global driver, lp, cp, tp, dp, sp, cm
 
-        if self.browser_type.lower() == "ch":
+        if (self.runtime % 2) == 0:
             driver = webdriver.Chrome(self.ch_executable_path)
-        elif self.browser_type.lower() == "ff":
+        else:
             driver = webdriver.Firefox(executable_path=self.ff_executable_path)
-        elif self.browser_type.lower() == "me":
-            driver = webdriver.Edge(self.me_executable_path)
 
         driver.maximize_window()
         driver.get(self.baseURL)
@@ -61,7 +62,7 @@ class TestClass(unittest.TestCase):
 
     def test_02_create_contact(self):
         global contact_data
-        contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Developer"]
+        contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Engineer"]
         cp.NavigateToContact()
         cp.CreateContact(contact_data)
         text = cp.VerifyCreateContact()
