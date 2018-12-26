@@ -6,6 +6,8 @@ from selenium.common.exceptions import *
 #import UtilityPackage.CustomLogger as cl
 import logging
 import time
+from selenium.webdriver.support.ui import WebDriverWait as wait
+from selenium.webdriver.support import expected_conditions as EC
 import os
 
 
@@ -89,5 +91,20 @@ class SeleniumDriver():
         except:
             print("Element not found with locator: " + locator +
                           " and  locatorType: " + locatorType)
-        attr_val=element.get_attribute(attr)
+        attr_val = element.get_attribute(attr)
         return attr_val
+
+    def isElementPresent(self, locator, locatorType="id"):
+        element = None
+        try:
+            locatorType = locatorType.lower()
+            byType = self.getByType(locatorType)
+            time.sleep(3)
+            element = self.driver.find_element(byType, locator)
+            print("Element found with locator: " + locator +
+                  " and  locatorType: " + locatorType)
+            return True
+        except:
+            print("Element not found with locator: " + locator +
+                  " and  locatorType: " + locatorType)
+            return False

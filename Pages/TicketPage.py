@@ -1,5 +1,5 @@
 from Tests.BaseClass import SeleniumDriver
-# from Tests.TestClass import TestClass as TC
+
 
 class TicketPage(SeleniumDriver):
     def __init__(self, driver):

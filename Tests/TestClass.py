@@ -1,12 +1,17 @@
 from selenium import webdriver
 import sys                                            # this should be first, used to run test through batch file
-sys.path.insert(0, "../../HUBSPOT_POM")               # this should be before the pages
+sys.path.insert(0, "../")                             # this should be before the pages
 from Pages.LoginPage import LoginPage
 from Pages.ContactPage import ContactPage
 from Pages.TicketPage import TicketPage
 from Pages.DealPage import DealPage
 from Pages.SnippetPage import SnippetPage
 from Pages.CompanyPage import CompanyPage
+from Pages.DocumentPage import DocumentPage
+from Pages.DashboardPage import DashboardPage
+from Pages.TaskPage import TaskPage
+from Pages.TemplatePage import TemplatePage
+from Tests.HS_TestData import TestData
 import unittest
 import configparser
 import datetime
@@ -27,7 +32,7 @@ class TestClass(unittest.TestCase):
     runtime = datetime.datetime.now().time().hour
 
     def setUp(self):
-        global driver, lp, cp, tp, dp, sp, cmp
+        global driver, lp, cp, tp, dp, sp, cmp, dcp, dshp, tsp, tmp
 
         if (self.runtime % 2) == 0:
             driver = webdriver.Chrome(self.ch_executable_path)
@@ -44,6 +49,10 @@ class TestClass(unittest.TestCase):
         dp = DealPage(driver)
         sp = SnippetPage(driver)
         cmp = CompanyPage(driver)
+        dcp = DocumentPage(driver)
+        dshp = DashboardPage(driver)
+        tsp = TaskPage(driver)
+        tmp = TemplatePage(driver)
 
         lp.UserLogin(self.user,self.pwd)
 
@@ -139,4 +148,62 @@ class TestClass(unittest.TestCase):
         cmp.DeleteCompany(name)
         text = cmp.VerifyDeleteCompany(company_data)
         assert text == "No companies match the current filters."
+        print(text)
+
+    def test_12_create_document(self):
+        dcp.NavigateToDocument()
+        dcp.CreateDocument()
+        text = dcp.VerifyCreate()
+        assert text == "questions.xlsx"
+        print(text)
+
+    def test_13_delete_document(self):
+        dcp.NavigateToDocument()
+        dcp.DeleteDocument()
+        text = dcp.VerifyDelete()
+        assert text == "Nothing matches your search."
+        print(text)
+
+    def test_14_create_task(self):
+        global task_data
+        task_data = "Open"
+        tsp.NavigateToTask()
+        tsp.CreateTask(task_data)
+        text = tsp.VerifyCreateTask()
+        assert text == task_data
+        print(text)
+
+    def test_15_delete_task(self):
+        tsp.NavigateToTask()
+        tsp.DeleteTask()
+        text = tsp.VerifyDeleteTask(task_data)
+        assert text == "No tasks match the current filters."
+        print(text)
+
+    def test_16_create_template(self):
+        tmp.NavigateToTemplate()
+        tmp.CreateTemplate(TestData.template_data)
+        text = tmp.VerifyCreate(TestData.template_data)
+        assert text == TestData.template_data[0]
+        print(text)
+
+    def test_17_delete_template(self):
+        tmp.NavigateToTemplate()
+        tmp.DeleteTemplate(TestData.template_data)
+        text = tmp.VerifyDelete()
+        assert text == "Nothing matches your search."
+        print(text)
+
+    def test_18_create_report(self):
+        dshp.NavigateToreports()
+        dshp.CreateReport()
+        text = dshp.VerifyCreateReport()
+        assert text == "Contacts Created By Day"
+        print(text)
+
+    def test_19_delete_template(self):
+        dshp.NavigateToreports()
+        dshp.DeleteReport()
+        text = dshp.VerifyDeleteReport()
+        assert text == False
         print(text)

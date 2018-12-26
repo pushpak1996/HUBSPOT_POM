@@ -48,5 +48,4 @@ class SnippetPage(SeleniumDriver):
 
     def VerifyDeleteSnippet(self):
         element = self.getElement(self._VerifyDelete,locatorType="css")
-        print(element.text)
         return element.text

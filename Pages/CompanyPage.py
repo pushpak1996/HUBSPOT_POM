@@ -48,4 +48,3 @@ class CompanyPage(SeleniumDriver):
         self.sendKeys(company_data, self._SearchCompany, locatorType="css")
         element = self.getElement(self._VerifyDelete, locatorType="css")
         return element.text
-
