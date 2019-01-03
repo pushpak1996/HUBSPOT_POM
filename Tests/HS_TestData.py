@@ -1,4 +1,5 @@
 import xlrd
+import os
 
 class TestData():
 
@@ -11,3 +12,8 @@ class TestData():
     company_data = wb.sheet_by_name('company_data')
     task_data = wb.sheet_by_name('task_data')
     template_data = wb.sheet_by_name('template_data')
+
+    rel_path = "../Test_Data/HS_Test_data.xlsx"
+    abs_path = os.path.abspath(rel_path)
+    file = rel_path.split("/")
+    verifyfile = file[2]

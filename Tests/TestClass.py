@@ -142,15 +142,15 @@ class TestClass(unittest.TestCase):
 
     def test_12_create_document(self):
         dcp.NavigateToDocument()
-        dcp.CreateDocument()
-        text = dcp.VerifyCreate()
-        assert text == "HS_Test_data.xlsx"
+        dcp.CreateDocument(TestData.abs_path)
+        text = dcp.VerifyCreate(TestData.verifyfile)
+        assert text == TestData.verifyfile
         print(text)
 
     def test_13_delete_document(self):
         dcp.NavigateToDocument()
         dcp.DeleteDocument()
-        text = dcp.VerifyDelete()
+        text = dcp.VerifyDelete(TestData.verifyfile)
         assert text == "Nothing matches your search."
         print(text)
 
