@@ -32,6 +32,7 @@ class TestClass(unittest.TestCase):
     runtime = datetime.datetime.now().time().hour
 
     def setUp(self):
+
         global driver, lp, cp, tp, dp, sp, cmp, dcp, dshp, tsp, tmp
 
         if (self.runtime % 2) == 0:
@@ -65,80 +66,69 @@ class TestClass(unittest.TestCase):
 
     def test_01_login(self):
         text=lp.VerifyLogin()
-        assert text == "Welcome back, PUSHPAK KUMAR."
+        assert text == "Getting started with HubSpot"
         print(text)
 
     def test_02_create_contact(self):
-        global contact_data
-        contact_data = ["james.bond@gmail.com", "James", "Bond", "Test Engineer"]
         cp.NavigateToContact()
-        cp.CreateContact(contact_data)
+        cp.CreateContact(TestData.contact_data)
         text = cp.VerifyCreateContact()
-        assert text == contact_data[1]+" "+contact_data[2]
+        assert text == TestData.contact_data.cell(1, 1).value+" "+TestData.contact_data.cell(1, 2).value
         print(text)
 
     def test_03_delete_contact(self):
         cp.NavigateToContact()
-        cp.DeleteContact(contact_data)
-        text = cp.VerifyDeleteContact(contact_data)
+        cp.DeleteContact(TestData.contact_data)
+        text = cp.VerifyDeleteContact(TestData.contact_data)
         assert text == "No contacts match the current filters."
         print(text)
 
     def test_04_create_ticket(self):
-        global ticket_data
-        ticket_data = "John"
         tp.NavigateToTicket()
-        tp.CreateTicket(ticket_data)
+        tp.CreateTicket(TestData.ticket_data)
         text = tp.VerifyCreateTicket()
-        assert text == ticket_data
+        assert text == TestData.ticket_data.cell(1, 0).value
         print(text)
 
     def test_05_delete_ticket(self):
         tp.NavigateToTicket()
-        ticket_data = "John"
-        tp.DeleteTicket(ticket_data)
-        text = tp.VerifyDeleteTicket(ticket_data)
+        tp.DeleteTicket(TestData.ticket_data)
+        text = tp.VerifyDeleteTicket(TestData.ticket_data)
         assert text == "No tickets could be found."
         print(text)
 
     def test_06_create_deal(self):
-        global deal_data
-        deal_data = ['John','30000']
         dp.NavigateToDeal()
-        dp.CreateDeal(deal_data)
+        dp.CreateDeal(TestData.deal_data)
         text = dp.VerifyCreateDeal()
-        assert text == deal_data[0]
+        assert text == TestData.deal_data.cell(1, 0).value
         print(text)
 
     def test_07_delete_deal(self):
-        deal_data = ['John', '30000']
         dp.NavigateToDeal()
-        dp.DeleteDeal(deal_data)
-        text = dp.VerifyDeleteDeal(deal_data)
+        dp.DeleteDeal(TestData.deal_data)
+        text = dp.VerifyDeleteDeal(TestData.deal_data)
         assert text == "No deals match the current filters."
         print(text)
 
     def test_08_create_snippet(self):
-        global snippet_data
-        snippet_data = ['Confirmation','We will Contact you later.','ST']
         sp.NavigateToSnippet()
-        sp.CreateSnippet(snippet_data)
-        text = sp.VerifyCreateSnippet(snippet_data)
-        assert text == snippet_data[0]
+        sp.CreateSnippet(TestData.snippet_data)
+        text = sp.VerifyCreateSnippet(TestData.snippet_data)
+        assert text == TestData.snippet_data.cell(1, 0).value
         print(text)
 
     def test_09_delete_snippet(self):
         sp.NavigateToSnippet()
-        sp.DeleteSnippet(snippet_data)
+        sp.DeleteSnippet(TestData.snippet_data)
         text = sp.VerifyDeleteSnippet()
         assert text == "Nothing matches your search."
         print(text)
 
     def test_10_create_company(self):
-        global company_data, name
-        company_data = ['hcl.com']
+        global name
         cmp.NavigateToCompany()
-        name = cmp.CreateCompany(company_data)
+        name = cmp.CreateCompany(TestData.company_data)
         text = cmp.VerifyCreateCompany()
         assert text == name
         print(text)
@@ -146,7 +136,7 @@ class TestClass(unittest.TestCase):
     def test_11_delete_company(self):
         cmp.NavigateToCompany()
         cmp.DeleteCompany(name)
-        text = cmp.VerifyDeleteCompany(company_data)
+        text = cmp.VerifyDeleteCompany(TestData.company_data)
         assert text == "No companies match the current filters."
         print(text)
 
@@ -154,7 +144,7 @@ class TestClass(unittest.TestCase):
         dcp.NavigateToDocument()
         dcp.CreateDocument()
         text = dcp.VerifyCreate()
-        assert text == "questions.xlsx"
+        assert text == "HS_Test_data.xlsx"
         print(text)
 
     def test_13_delete_document(self):
@@ -165,18 +155,16 @@ class TestClass(unittest.TestCase):
         print(text)
 
     def test_14_create_task(self):
-        global task_data
-        task_data = "Open"
         tsp.NavigateToTask()
-        tsp.CreateTask(task_data)
+        tsp.CreateTask(TestData.task_data)
         text = tsp.VerifyCreateTask()
-        assert text == task_data
+        assert text == TestData.task_data.cell(1, 0).value
         print(text)
 
     def test_15_delete_task(self):
         tsp.NavigateToTask()
         tsp.DeleteTask()
-        text = tsp.VerifyDeleteTask(task_data)
+        text = tsp.VerifyDeleteTask(TestData.task_data)
         assert text == "No tasks match the current filters."
         print(text)
 
@@ -184,7 +172,7 @@ class TestClass(unittest.TestCase):
         tmp.NavigateToTemplate()
         tmp.CreateTemplate(TestData.template_data)
         text = tmp.VerifyCreate(TestData.template_data)
-        assert text == TestData.template_data[0]
+        assert text == TestData.template_data.cell(1, 0).value
         print(text)
 
     def test_17_delete_template(self):
@@ -201,7 +189,7 @@ class TestClass(unittest.TestCase):
         assert text == "Contacts Created By Day"
         print(text)
 
-    def test_19_delete_template(self):
+    def test_19_delete_report(self):
         dshp.NavigateToreports()
         dshp.DeleteReport()
         text = dshp.VerifyDeleteReport()
