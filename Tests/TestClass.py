@@ -70,7 +70,7 @@ class TestClass(unittest.TestCase):
         print(text)
 
     def test_02_create_contact(self):
-        cp.NavigateToContact()
+        # cp.NavigateToContact()
         cp.CreateContact(TestData.contact_data)
         text = cp.VerifyCreateContact()
         assert text == TestData.contact_data.cell(1, 1).value+" "+TestData.contact_data.cell(1, 2).value

@@ -1187,3 +1187,16 @@ console.error: BroadcastService:
 JavaScript error: https://app.hubspot.com/notifications/5180090/iframe, line 40: ReferenceError: hns is not defined
 JavaScript error: https://app.hubspot.com/notifications/5180090/iframe, line 51: TypeError: hubspot.require is not a function
 JavaScript warning: https://static.hsappstatic.net/DashboardUI/static-4.2574/chunk-widget-grid.js, line 3: unreachable code after return statement
+1545984935226	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.V28swJH5smRM"
+1545990184731	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.Sre9MFhLhpKY"
+1546864966381	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.TaKbl9p8SvRO"
+1546864978274	Marionette	INFO	Listening on port 55579
+1546864978742	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PFWQMQJ&t=gtm3&cid=413235882.1546864991, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-PXDHJ7T&t=gtm4&cid=413235882.1546864991, line 94: unreachable code after return statement
+JavaScript warning: https://www.google-analytics.com/gtm/js?id=GTM-TNG7ZNP&t=gtm5&cid=413235882.1546864991, line 94: unreachable code after return statement
+1546868046912	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.GE1ptqmD2Oz6"
+1546868059759	Marionette	INFO	Listening on port 57590
+1546868060004	Marionette	WARN	TLS certificate errors will be ignored for this session
+1546984069365	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.kuTqck7VCVms"
+1547108220320	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\dell\\AppData\\Local\\Temp\\rust_mozprofile.BqW4MkGiDZkL"

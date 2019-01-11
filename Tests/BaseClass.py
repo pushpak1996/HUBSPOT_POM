@@ -6,6 +6,7 @@ from selenium.common.exceptions import *
 #import UtilityPackage.CustomLogger as cl
 import logging
 import time
+import datetime
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 import os
@@ -25,6 +26,7 @@ class SeleniumDriver():
         except:
             print("Cannot send data on the element with locator: " + locator +
                           " locatorType: " + locatorType)
+            self.capture_screenshot()
 
     def elementClick(self, locator, locatorType="id"):
         try:
@@ -38,6 +40,7 @@ class SeleniumDriver():
             print("Cannot click on the element with locator: " + locator +
                           " locatorType: " + locatorType)
             print_stack()
+            self.capture_screenshot()
 
     def getElement(self, locator, locatorType="id"):
         element = None
@@ -51,6 +54,7 @@ class SeleniumDriver():
         except:
             print("Element not found with locator: " + locator +
                           " and  locatorType: " + locatorType)
+            self.capture_screenshot()
         return element
 
     def getByType(self, locatorType):
@@ -91,6 +95,7 @@ class SeleniumDriver():
         except:
             print("Element not found with locator: " + locator +
                           " and  locatorType: " + locatorType)
+            self.capture_screenshot()
         attr_val = element.get_attribute(attr)
         return attr_val
 
@@ -107,4 +112,11 @@ class SeleniumDriver():
         except:
             print("Element not found with locator: " + locator +
                   " and  locatorType: " + locatorType)
+            self.capture_screenshot()
             return False
+
+    def capture_screenshot(self):
+        sp_time = datetime.datetime.now()
+        spt = sp_time.strftime('%d-%m-%y_%H-%M-%S')
+        file_path = '../Snapshots/HS_'+spt+'.png'
+        self.driver.save_screenshot(file_path)
